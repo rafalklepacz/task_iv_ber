@@ -1,8 +1,8 @@
-﻿#include <iostream>
+﻿#include "pch.h"
+
 #include <fstream>
 #include <string>
 
-#include "pch.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,33 +16,40 @@ int main(int argc, char *argv[])
 
     if (argc != 3)
     {
-        std::cerr << "Invalid arguments number, two arguments expected!!!" << std::endl;
+        std::cerr << "Invalid arguments number, two arguments expected!" << std::endl;
         std::cerr << "Try enter the paths of the two files to compare: <file_path_1> <file_path_2>" << std::endl;
         return -1;
     }
-    
-    std::string firstFilePath(argv[1]);
-    std::ifstream firstFileStream(firstFilePath);
-    if (!firstFileStream)
+
+    std::string filepath_1(argv[1]);
+    std::string filepath_2(argv[2]);
+
+    if (filepath_1.compare(filepath_2) == 0)
     {
-        std::cerr << "The file does not exist: " << firstFilePath << std::endl;
-        firstFileStream.close();
+        std::cerr << "You cannot compare the file `" << filepath_1 << "` with itself!" << std::endl;
+        return -1;
+    }
+    
+    std::ifstream file_1(filepath_1);
+    if (!file_1)
+    {
+        std::cerr << "The file does not exist: " << filepath_1 << std::endl;
+        file_1.close();
         return -1;
     }
 
-    std::string secondFilePath(argv[2]);
-    std::ifstream secondFileStream(secondFilePath);
-    if (!secondFileStream)
+    std::ifstream file_2(filepath_2);
+    if (!file_2)
     {
-        std::cerr << "The file does not exist: " << secondFilePath << std::endl;
-        secondFileStream.close();
+        std::cerr << "The file does not exist: " << filepath_2 << std::endl;
+        file_2.close();
         return -1;
     }
 
     // TODO: 
 
-    firstFileStream.close();
-    secondFileStream.close();
+    file_1.close();
+    file_2.close();
 
     return 0;
 }
