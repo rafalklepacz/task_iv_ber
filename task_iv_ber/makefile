@@ -2,7 +2,7 @@ CXX ?= g++
 
 # path #
 SRC_PATH = .
-BUILD_PATH = build
+BUILD_PATH = bin
 BIN_PATH = $(BUILD_PATH)
 
 # executable # 
