@@ -6,7 +6,6 @@
 uint8_t hammingDistance(uint8_t n1, uint8_t n2);
 void createFile1(const std::string name, const int count, const char value);
 
-
 int main(int argc, char *argv[])
 {
     std::cout << "BER Calc v1.0" << std::endl;
@@ -32,7 +31,7 @@ int main(int argc, char *argv[])
         std::cerr << "You cannot compare the file `" << filepath_1 << "` with itself!" << std::endl;
         return -1;
     }
-    
+
     std::ifstream file_1(filepath_1);
     if (!file_1)
     {
@@ -49,7 +48,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    // TODO: 
+    // TODO:
 
     std::cout << (int)hammingDistance(0xFF, 0x01) << std::endl;
     createFile1("test1_file1.bin", 100, 0x55);
@@ -78,8 +77,7 @@ void createFile1(const std::string name, const int count, const char value)
     f.open(name.c_str(), std::ios::binary | std::ios::out);
     for (int i = 0; i < count; i++)
     {
-        f.write((char*)&value,1);
+        f.write((char *)&value, 1);
     }
     f.close();
 }
-
