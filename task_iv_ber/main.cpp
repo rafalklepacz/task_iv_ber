@@ -3,8 +3,10 @@
 #include <fstream>
 #include <string>
 
-uint8_t hammingDistance(uint8_t n1, uint8_t n2);
-void createFile1(const std::string name, const int count, const char value);
+#include "berCalculator.h"
+
+uint8_t hammingDistance1(uint8_t n1, uint8_t n2);
+uint8_t hammingDistance2(uint8_t n1, uint8_t n2);
 
 int main(int argc, char *argv[])
 {
@@ -50,8 +52,7 @@ int main(int argc, char *argv[])
 
     // TODO:
 
-    std::cout << (int)hammingDistance(0xFF, 0x01) << std::endl;
-    createFile1("test1_file1.bin", 100, 0x55);
+    std::cout << (int)getHammingDistance(0xFF, 0x01) << std::endl;
 
     file_1.close();
     file_2.close();
@@ -59,25 +60,31 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-uint8_t hammingDistance(uint8_t n1, uint8_t n2)
-{
-    uint8_t x = n1 ^ n2; // XOR
-    uint8_t setBits = 0;
-    while (x > 0)
-    {
-        setBits += x & 1;
-        x >>= 1;
-    }
-    return setBits;
-}
+// https://www.positioniseverything.net/cpp-read-binary-file
+// #include <iostream>
+// #include <sys/stat.h>
+// #include <unistd.h>
+// #include <unistd.h>using std::cout; using std::cerr;
+// using std::endl; using std::string;int main() {
+// string filename(“filename”);
+// auto in_file = fopen(filename.c_str(), “rb”);
+// if (!in_file) {
+// perror(“fopen”);
+// exit(EXIT_FAILURE);
+// }struct stat sb{};
+// if (stat(filename.c_str(), &sb) == -1) {
+// perror(“stat”);
+// exit(EXIT_FAILURE);
+// }
+// u_char* file_contents = new u_char[sb.st_size];
+// fread(file_contents, sb.st_size, 1, in_file);
+// for (int i = 0; i < sb.st_size; ++i) {
+// printf(“%02X “, file_contents[i]);
+// if (i % 10 == 0 && i != 0){
+// cout << ‘n’;
+// }
+// }
 
-void createFile1(const std::string name, const int count, const char value)
-{
-    std::fstream f;
-    f.open(name.c_str(), std::ios::binary | std::ios::out);
-    for (int i = 0; i < count; i++)
-    {
-        f.write((char *)&value, 1);
-    }
-    f.close();
-}
+// delete [] file_contents;
+// exit(0);
+// }
