@@ -30,7 +30,7 @@ BerResult calculate(std::string filePath1, std::string filePath2)
         }
     }
 
-    result.ber = (float)result.errorBits / result.totalBits; // calculate ber
+    result.ber = (float)(result.errorBits / result.totalBits); // calculate ber
     result.stopTime = clock();
     saveLog("BER calculation is done");
     return result;
