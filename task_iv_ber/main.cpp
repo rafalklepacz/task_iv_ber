@@ -1,5 +1,7 @@
 ﻿#include "pch.h"
 
+#include<string>
+
 #include "menu.h"
 #include "logger.h"
 #include "validator.h"
