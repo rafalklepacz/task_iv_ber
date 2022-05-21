@@ -1,90 +1,52 @@
 ﻿#include "pch.h"
 
-#include <fstream>
-#include <string>
-
+#include "menu.h"
+#include "logger.h"
+#include "validator.h"
+#include "fileCreator.h"
 #include "berCalculator.h"
-
-uint8_t hammingDistance1(uint8_t n1, uint8_t n2);
-uint8_t hammingDistance2(uint8_t n1, uint8_t n2);
 
 int main(int argc, char *argv[])
 {
-    std::cout << "BER Calc v1.0" << std::endl;
-    std::cout << "argc = " << argc << std::endl;
-    int iter = 0;
-    for (iter = 0; iter < argc; iter++)
+    openLog("task_iv_ber.log");
+
+    printStartupInfo(argc, argv);
+
+    ValidationResult validationResult = validate(argc, argv);
+    if (validationResult.isValid)
     {
-        std::cout << "argv[" << iter << "] = " << argv[iter] << std::endl;
+        BerResult result = calculate(argv[1], argv[2]);
+        printResult(result);
+    }
+    else
+    {
+        saveLog("No valid arguments were given and error message is: " + validationResult.error);
+        saveLog("Select an option from the menu below");
+
+        MenuItem menuItem = getUserMenuItem();
+
+        saveLog("You chose the option: " + std::to_string(menuItem));
+
+        Files createdFiles;
+        switch (menuItem)
+        {
+            case Test1:
+                createdFiles = createFilesTest1();
+                break;
+            case Test2:
+                createdFiles = createFilesTest2();
+                break;
+            case Test3:
+                createdFiles = createFilesTest3();
+                break;
+            default:
+                return 0;
+        }
+
+        saveLog("Now, restart app with the command => " + (std::string)argv[0] + " " + createdFiles.file1 + " " + createdFiles.file2);
     }
 
-    if (argc != 3)
-    {
-        std::cerr << "Invalid arguments number, two arguments expected!" << std::endl;
-        std::cerr << "Try enter the paths of the two files to compare: <file_path_1> <file_path_2>" << std::endl;
-        return -1;
-    }
-
-    std::string filepath_1(argv[1]);
-    std::string filepath_2(argv[2]);
-
-    if (filepath_1.compare(filepath_2) == 0)
-    {
-        std::cerr << "You cannot compare the file `" << filepath_1 << "` with itself!" << std::endl;
-        return -1;
-    }
-
-    std::ifstream file_1(filepath_1);
-    if (!file_1)
-    {
-        std::cerr << "The file does not exist: " << filepath_1 << std::endl;
-        file_1.close();
-        return -1;
-    }
-
-    std::ifstream file_2(filepath_2);
-    if (!file_2)
-    {
-        std::cerr << "The file does not exist: " << filepath_2 << std::endl;
-        file_2.close();
-        return -1;
-    }
-
-    // TODO:
-
-    std::cout << (int)getHammingDistance(0xFF, 0x01) << std::endl;
-
-    file_1.close();
-    file_2.close();
+    closeLog();
 
     return 0;
 }
-
-// https://www.positioniseverything.net/cpp-read-binary-file
-// #include <iostream>
-// #include <sys/stat.h>
-// #include <unistd.h>
-// #include <unistd.h>using std::cout; using std::cerr;
-// using std::endl; using std::string;int main() {
-// string filename(“filename”);
-// auto in_file = fopen(filename.c_str(), “rb”);
-// if (!in_file) {
-// perror(“fopen”);
-// exit(EXIT_FAILURE);
-// }struct stat sb{};
-// if (stat(filename.c_str(), &sb) == -1) {
-// perror(“stat”);
-// exit(EXIT_FAILURE);
-// }
-// u_char* file_contents = new u_char[sb.st_size];
-// fread(file_contents, sb.st_size, 1, in_file);
-// for (int i = 0; i < sb.st_size; ++i) {
-// printf(“%02X “, file_contents[i]);
-// if (i % 10 == 0 && i != 0){
-// cout << ‘n’;
-// }
-// }
-
-// delete [] file_contents;
-// exit(0);
-// }

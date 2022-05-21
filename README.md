@@ -12,6 +12,6 @@ Wymagania dla programu:
 3. Program tworzy plik log.txt w którym zapisuje swoje logi. Każda wiadomość rozpoczyna się od timestamp'a.
 4. Test 1: Przygotuj dwa identyczne pliki zawierające binarnie zapisaną wartość 0x55. Każdy plik po 100 Bajtów.
 5. Test 2: Przygotuj dwa pliki każdy po 100 bajtów. Pierwszy zawiera binarnie zapisaną wartość 0x55. Drugi plik różni się od pierwszego o dowolne 10 bitów.
-6. Test 3: Przygotuje dwa pliki każdy po 400 MB. Pierwszy zawiera binarnie zapisaną wartość 0x55. Drugi plik zawiera binarnie zapisaną wartość 0x50.
+6. Test 3: Przygotuj dwa pliki każdy po 400 MB. Pierwszy zawiera binarnie zapisaną wartość 0x55. Drugi plik zawiera binarnie zapisaną wartość 0x50.
 
 Podaj wynik działania programu BER dla podanych plików testowych (Wyniki zapisane w pliku z logami) 
