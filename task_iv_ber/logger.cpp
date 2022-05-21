@@ -1,35 +1,41 @@
 #include "pch.h"
 #include "logger.h"
 #include <fstream>
+#include <iomanip>
+#include <ctime>
 
 std::fstream logFile; // handler for log file
 
 void openLog(std::string fileName)
 {
     logFile.open(fileName.c_str(), std::ios_base::app);
-    if (!logFile.good() == true)
+    if (!logFile.good())
     {
-        std::cout << "Cannot open log file "
-                  << "log.txt" << std::endl;
+        std::cout << "Cannot open log file: " << fileName.c_str() << std::endl;
     }
-    saveLog("Log file opened");
+    std::stringstream msg;
+    msg << std::string(10, '=') << " Log file opened " << std::string(10, '=') << std::endl;
+    saveLog(msg.str());
 }
 
 void closeLog(void)
 {
-    saveLog("Log file closed");
+    std::stringstream msg;
+    msg << std::string(10, '=') << " Log file closed " << std::string(10, '=') << std::endl;
+    saveLog(msg.str());
     logFile.close();
 }
 
 void saveLog(std::string msg)
 {
-    std::string ss;
-    time_t currentTime = time(NULL);
-    std::string txttime = (std::string)asctime(localtime(&currentTime));
-    txttime = txttime.substr(0, txttime.length() - 1);
-    ss = (std::string) "T: " + txttime + " M: " + msg + "\n";
-    logFile << ss.c_str();
+    time_t now = time(nullptr);
+
+    std::stringstream logLine;
+    logLine << std::endl << std::put_time(localtime(&now), "[%H:%M:%S %d-%m-%Y]: ") << msg;
+
+    logFile << logLine.str();
     logFile.flush();
-    std::cout << ss.c_str();
+
+    std::cout << logLine.str();
     std::cout.flush();
 }
