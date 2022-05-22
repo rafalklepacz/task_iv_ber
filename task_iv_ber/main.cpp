@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 
 #include<string>
+#include <bitset>
 
 #include "menu.h"
 #include "logger.h"
@@ -22,8 +23,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        saveLog("No valid arguments were given and error message is: " + validationResult.error);
-        saveLog("Select an option from the menu below");
+        saveLog("No valid arguments were given and error message is: `" + validationResult.error + "`\nSelect an option from the menu below");
 
         MenuItem menuItem = getUserMenuItem();
 
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
                 return 0;
         }
 
-        saveLog("Now, restart app with the command => " + (std::string)argv[0] + " " + createdFiles.file1 + " " + createdFiles.file2);
+        saveLog("Run again with command => " + (std::string)argv[0] + " " + createdFiles.file1 + " " + createdFiles.file2);
     }
 
     closeLog();

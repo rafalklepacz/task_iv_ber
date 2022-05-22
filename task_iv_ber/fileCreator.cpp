@@ -29,7 +29,7 @@ Files createFilesTest2()
     // 0x53 (01010011)
     // diff is 2bx5=10b
     const int size = 5;
-    const char buf[size] = { 0x53 };
+    const char buf[size] = { 0x53, 0x53, 0x53, 0x53, 0x53 };
     std::ofstream f(TEST2_FILE2_NAME, std::ios::binary | std::ios::out | std::ios::in);
     f.write(buf, size);
 
