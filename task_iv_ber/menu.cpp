@@ -11,7 +11,8 @@
 void printStartupInfo(int argc, char* argv[])
 {
 	std::stringstream msg;
-	msg << std::endl << "BER Calc v1.0" << std::endl;
+	msg << std::endl << std::string(15, '-') << std::endl;
+	msg << "BER Calc v1.0" << std::endl;
 	msg << "argc = " << argc << std::endl;
 
 	int iter = 0;
@@ -19,7 +20,7 @@ void printStartupInfo(int argc, char* argv[])
 	{
 		msg << "argv[" << iter << "] = " << argv[iter] << std::endl;
 	}
-
+	msg << std::string(15, '-') << std::endl;
 	saveLog(msg.str());
 }
 

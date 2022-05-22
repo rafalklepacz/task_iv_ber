@@ -1,0 +1,153 @@
+
+[10:55:08 22-05-2022]: ========== Log file opened ==========
+
+[10:55:08 22-05-2022]: 
+---------------
+BER Calc v1.0
+argc = 1
+argv[0] = D:\Projekty\task_iv_ber\task_iv_ber\x64\Debug\task_iv_ber.exe
+---------------
+
+[10:55:08 22-05-2022]: No valid arguments were given and error message is: `Invalid arguments number, two arguments expected! Try pass two files to compare: <file_path_1> <file_path_2>`
+Select an option from the menu below
+[10:55:08 22-05-2022]: 
+---------------
+ Main menu
+---------------
+[1] Prepare two identical files containing the binary value of 0x55. Each file is 100B.
+[2] Prepare two files, 100B each. The first contains the binary value of 0x55, second file differs from the first by any 10b.
+[3] Prepare two files, 400MB each. The first contains the binary value of 0x55, second file contains the binary value of 0x50.
+---------------
+[4] EXIT
+---------------
+Type a option number and press ENTER: 
+[10:55:10 22-05-2022]: You chose the option: 1
+[10:55:10 22-05-2022]: Creating file `test1_file1.bin`...
+[10:55:10 22-05-2022]: File `test1_file1.bin' was created
+[10:55:10 22-05-2022]: Creating file `test1_file2.bin`...
+[10:55:10 22-05-2022]: File `test1_file2.bin' was created
+[10:55:10 22-05-2022]: Run again with command => D:\Projekty\task_iv_ber\task_iv_ber\x64\Debug\task_iv_ber.exe test1_file1.bin test1_file2.bin
+[10:55:10 22-05-2022]: ========== Log file closed ==========
+
+[10:55:25 22-05-2022]: ========== Log file opened ==========
+
+[10:55:25 22-05-2022]: 
+---------------
+BER Calc v1.0
+argc = 3
+argv[0] = D:\Projekty\task_iv_ber\task_iv_ber\x64\Debug\task_iv_ber.exe
+argv[1] = test1_file1.bin
+argv[2] = test1_file2.bin
+---------------
+
+[10:55:25 22-05-2022]: Calculating BER...
+[10:55:25 22-05-2022]: BER calculation is done
+[10:55:25 22-05-2022]: BER results: 
+                       BER: 0
+                       TotalBits: 800
+                       ErrorBits: 0
+                       Calculation time: 0s
+
+[10:55:25 22-05-2022]: ========== Log file closed ==========
+
+[10:55:31 22-05-2022]: ========== Log file opened ==========
+
+[10:55:31 22-05-2022]: 
+---------------
+BER Calc v1.0
+argc = 1
+argv[0] = D:\Projekty\task_iv_ber\task_iv_ber\x64\Debug\task_iv_ber.exe
+---------------
+
+[10:55:31 22-05-2022]: No valid arguments were given and error message is: `Invalid arguments number, two arguments expected! Try pass two files to compare: <file_path_1> <file_path_2>`
+Select an option from the menu below
+[10:55:31 22-05-2022]: 
+---------------
+ Main menu
+---------------
+[1] Prepare two identical files containing the binary value of 0x55. Each file is 100B.
+[2] Prepare two files, 100B each. The first contains the binary value of 0x55, second file differs from the first by any 10b.
+[3] Prepare two files, 400MB each. The first contains the binary value of 0x55, second file contains the binary value of 0x50.
+---------------
+[4] EXIT
+---------------
+Type a option number and press ENTER: 
+[10:55:32 22-05-2022]: You chose the option: 2
+[10:55:32 22-05-2022]: Creating file `test2_file1.bin`...
+[10:55:32 22-05-2022]: File `test2_file1.bin' was created
+[10:55:32 22-05-2022]: Creating file `test2_file2.bin`...
+[10:55:32 22-05-2022]: File `test2_file2.bin' was created
+[10:55:32 22-05-2022]: Run again with command => D:\Projekty\task_iv_ber\task_iv_ber\x64\Debug\task_iv_ber.exe test2_file1.bin test2_file2.bin
+[10:55:32 22-05-2022]: ========== Log file closed ==========
+
+[10:55:38 22-05-2022]: ========== Log file opened ==========
+
+[10:55:38 22-05-2022]: 
+---------------
+BER Calc v1.0
+argc = 3
+argv[0] = D:\Projekty\task_iv_ber\task_iv_ber\x64\Debug\task_iv_ber.exe
+argv[1] = test2_file1.bin
+argv[2] = test2_file2.bin
+---------------
+
+[10:55:38 22-05-2022]: Calculating BER...
+[10:55:38 22-05-2022]: BER calculation is done
+[10:55:38 22-05-2022]: BER results: 
+                       BER: 0.0125
+                       TotalBits: 800
+                       ErrorBits: 10
+                       Calculation time: 0s
+
+[10:55:38 22-05-2022]: ========== Log file closed ==========
+
+[10:55:47 22-05-2022]: ========== Log file opened ==========
+
+[10:55:47 22-05-2022]: 
+---------------
+BER Calc v1.0
+argc = 1
+argv[0] = D:\Projekty\task_iv_ber\task_iv_ber\x64\Debug\task_iv_ber.exe
+---------------
+
+[10:55:47 22-05-2022]: No valid arguments were given and error message is: `Invalid arguments number, two arguments expected! Try pass two files to compare: <file_path_1> <file_path_2>`
+Select an option from the menu below
+[10:55:47 22-05-2022]: 
+---------------
+ Main menu
+---------------
+[1] Prepare two identical files containing the binary value of 0x55. Each file is 100B.
+[2] Prepare two files, 100B each. The first contains the binary value of 0x55, second file differs from the first by any 10b.
+[3] Prepare two files, 400MB each. The first contains the binary value of 0x55, second file contains the binary value of 0x50.
+---------------
+[4] EXIT
+---------------
+Type a option number and press ENTER: 
+[10:55:51 22-05-2022]: You chose the option: 3
+[10:55:51 22-05-2022]: Creating file `test3_file1.bin`...
+[10:56:45 22-05-2022]: File `test3_file1.bin' was created
+[10:56:45 22-05-2022]: Creating file `test3_file2.bin`...
+[10:57:37 22-05-2022]: File `test3_file2.bin' was created
+[10:57:37 22-05-2022]: Run again with command => D:\Projekty\task_iv_ber\task_iv_ber\x64\Debug\task_iv_ber.exe test3_file1.bin test3_file2.bin
+[10:57:37 22-05-2022]: ========== Log file closed ==========
+
+[10:57:48 22-05-2022]: ========== Log file opened ==========
+
+[10:57:48 22-05-2022]: 
+---------------
+BER Calc v1.0
+argc = 3
+argv[0] = D:\Projekty\task_iv_ber\task_iv_ber\x64\Debug\task_iv_ber.exe
+argv[1] = test3_file1.bin
+argv[2] = test3_file2.bin
+---------------
+
+[10:57:48 22-05-2022]: Calculating BER...
+[11:02:35 22-05-2022]: BER calculation is done
+[11:02:35 22-05-2022]: BER results: 
+                       BER: 0.25
+                       TotalBits: 3.35544e+09
+                       ErrorBits: 8.38861e+08
+                       Calculation time: 287.111s
+
+[11:02:35 22-05-2022]: ========== Log file closed ==========
